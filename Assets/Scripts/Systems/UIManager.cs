@@ -1,19 +1,46 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace WM.UI
 {
     public class UIManager : MonoBehaviour
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        [Header("Settings Panel")]
+        [SerializeField] private GameObject settingsPanel;
+        [SerializeField] private Button settingButton;
+        [SerializeField] private Button homeButton;
+        [SerializeField] private Button quitButton;
+
+        private void OnEnable()
         {
-        
+            settingButton.onClick.AddListener(OnSettingButton);
+            homeButton.onClick.AddListener(OnHomeButton);
+            quitButton.onClick.AddListener(OnQuitButton);
         }
 
-        // Update is called once per frame
-        void Update()
+        private void OnDisable()
         {
-        
+            settingButton.onClick.RemoveListener(OnSettingButton);
+            homeButton.onClick.RemoveListener(OnHomeButton);
+            quitButton.onClick.RemoveListener(OnQuitButton);
+        }
+
+        private void OnSettingButton()
+        {
+            settingsPanel.SetActive(!settingsPanel.activeSelf);
+        }
+
+        private void OnHomeButton()
+        {
+            SceneManager.LoadScene("MainMenu");
+            Debug.Log("Loading MainMenu");
+        }   
+
+        private void OnQuitButton()
+        {
+            Debug.Log("Quitting Application");
+            Application.Quit();
         }
     }
 }

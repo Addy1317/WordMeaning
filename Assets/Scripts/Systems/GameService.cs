@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using WM.Audio;
-using WM.Event;
+using WM.dictionary;
 using WM.Generic;
-using WM.Manager;
 using WM.UI;
 
 namespace WM.Services
@@ -11,10 +10,9 @@ namespace WM.Services
     public class GameService : GenericMonoSingleton<GameService>
     {
         [Header("Managers")]
-        [SerializeField] internal GameManager gameManager;
         [SerializeField] internal AudioManager audioManager;
         [SerializeField] internal UIManager uiManager;
-        [SerializeField] internal EventManager eventManager;
+        [SerializeField] internal DictionaryManager dictionaryManager;
 
         protected override void Awake()
         {
@@ -35,10 +33,9 @@ namespace WM.Services
         {
             var services = new Dictionary<string, Object>
             {
-            { "GameManager", gameManager },
             { "AudioManager", audioManager },
             { "UIManager", uiManager },
-            { "EventManager", eventManager }
+            {"DictionayManager", dictionaryManager }
             };
 
             foreach (var service in services)
