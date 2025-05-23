@@ -1,4 +1,9 @@
-﻿using TMPro;
+﻿#region Summary
+///<summary>
+/// Player Controller script for taking Input and providing Data 
+///</summary>
+#endregion
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using WM.Audio;
@@ -34,6 +39,7 @@ namespace WM
             }
         }
 
+        //On Clicking Meaning Button
         private void OnGetMeaningClicked()
         {
             string inputWord = wordInputField.text.Trim();
@@ -50,6 +56,7 @@ namespace WM
             GameService.Instance.audioManager.PlaySFX(SFXType.OnButtonClick);
         }
 
+        //On Reciving Word Data
         private void OnWordDataReceived(WordData data)
         {
             if (data == null)

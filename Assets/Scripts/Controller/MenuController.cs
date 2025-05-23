@@ -1,3 +1,8 @@
+#region Summary
+///<summary>
+///Menu script for controlling the main menu UI 
+///</summary>
+#endregion
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -40,6 +45,11 @@ namespace WM.Menu
         }
 
         private void Start()
+        {
+            ButtonHoverEffect();
+        }
+
+        private void ButtonHoverEffect()
         {
             vfxManager.AddHoverEffect(startButton);
             vfxManager.AddHoverEffect(settingButton);

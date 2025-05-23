@@ -1,3 +1,9 @@
+#region Summary
+///<summary>
+///Generic MonoSingleton 
+///Singleton class for Manager scripts
+///</summary>
+#endregion
 using UnityEngine;
 
 namespace WM.Generic

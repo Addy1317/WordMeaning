@@ -1,3 +1,8 @@
+#region Summary
+///<summary>
+///UI Manager script for Game's UI
+///</summary>
+#endregion
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -28,6 +33,11 @@ namespace WM.UI
         }
 
         private void Start()
+        {
+            ButtonHoverEffect();
+        }
+
+        private void ButtonHoverEffect()
         {
             GameService.Instance.vFXManager.AddHoverEffect(settingButton);
             GameService.Instance.vFXManager.AddHoverEffect(homeButton);

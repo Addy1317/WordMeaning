@@ -46,5 +46,4 @@ namespace WM.dictionary
         public string definition;
         public string example;
     }
-
 }

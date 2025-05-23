@@ -1,5 +1,9 @@
+#region Summary
+///<summary>
+///Audio ScriptableObejct
+///</summary>
+#endregion
 using UnityEngine;
-using WM.Audio;
 
 namespace WM
 {

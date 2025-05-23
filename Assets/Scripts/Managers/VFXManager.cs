@@ -1,3 +1,8 @@
+#region Summary
+///<summary>
+/// Vfx Script for Button Hover Effect
+///</summary>
+#endregion
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;

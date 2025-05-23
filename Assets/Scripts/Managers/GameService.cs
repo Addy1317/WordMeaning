@@ -1,3 +1,8 @@
+#region Summary
+///<summary>
+///Centralized GameService: For other Manager scripts to inherit it
+///</summary>
+#endregion
 using System.Collections.Generic;
 using UnityEngine;
 using WM.Audio;

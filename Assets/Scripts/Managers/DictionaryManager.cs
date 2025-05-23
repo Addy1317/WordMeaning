@@ -1,3 +1,8 @@
+#region Summary
+///<summary>
+///DictionaryManager script for Fetching Data from API
+///</summary>
+#endregion
 using System;
 using System.Collections;
 using UnityEngine;
@@ -10,7 +15,7 @@ namespace WM.dictionary
         [Header("API Configuration")]
         private const string API_URL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
-        //Call this method to start fetching meaning for a word.
+        //Method to start fetching meaning for a word.
         public void FetchWordData(string word, Action<WordData> onResult)
         {
             if (string.IsNullOrEmpty(word) || word.Contains(" "))
@@ -24,6 +29,7 @@ namespace WM.dictionary
             StartCoroutine(RequestDefinitionCoroutine(requestUrl, onResult));
         }
 
+        //Method to Reterive Data 
         private IEnumerator RequestDefinitionCoroutine(string url, Action<WordData> onResult)
         {
             using (UnityWebRequest request = UnityWebRequest.Get(url))
@@ -50,7 +56,9 @@ namespace WM.dictionary
 
                     string audioUrl = "";
                     if (entry.phonetics != null && entry.phonetics.Length > 0)
+                    {
                         audioUrl = entry.phonetics[0].audio;
+                    }
 
                     string definition = "";
                     string example = "";
