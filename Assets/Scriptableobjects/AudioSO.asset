@@ -16,5 +16,5 @@ MonoBehaviour:
   backgroundMusicVolume: 0.5
   sfxClips:
   - sfxType: 1
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 042b7554325cf4e49a4c0f004bd51216, type: 3}
   sfxVolume: 0.5

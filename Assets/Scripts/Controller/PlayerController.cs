@@ -23,6 +23,7 @@ namespace WM
             {
                 getMeaningButton.onClick.AddListener(OnGetMeaningClicked);
             }
+            GameService.Instance.vFXManager.AddHoverEffect(getMeaningButton);
         }
 
         private void OnDestroy()
@@ -46,6 +47,7 @@ namespace WM
             outputText.text = "<i>Fetching meaning...</i>";
 
             GameService.Instance.dictionaryManager.FetchWordData(inputWord,OnWordDataReceived);
+            GameService.Instance.audioManager.PlaySFX(SFXType.OnButtonClick);
         }
 
         private void OnWordDataReceived(WordData data)

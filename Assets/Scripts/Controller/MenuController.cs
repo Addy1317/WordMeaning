@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using WM.Audio;
+using WM.VFX;
 
-namespace WM
+namespace WM.Menu
 {
     public class MenuController : MonoBehaviour
     {
@@ -14,6 +16,10 @@ namespace WM
         [Header("Settings Panel")]
         [SerializeField] private GameObject settingsPanel;
         [SerializeField] private Button settingsCloseButton;
+
+        [Header("Script Ref")]
+        [SerializeField] private AudioManager audioManager;
+        [SerializeField] private VFXManager vfxManager;
 
         private void OnEnable()
         {
@@ -33,25 +39,36 @@ namespace WM
             settingsCloseButton.onClick.RemoveListener(OnSettingsCloseButton);
         }
 
+        private void Start()
+        {
+            vfxManager.AddHoverEffect(startButton);
+            vfxManager.AddHoverEffect(settingButton);
+            vfxManager.AddHoverEffect(quitButton);
+            vfxManager.AddHoverEffect(settingsCloseButton);
+        }
+
         private void OnStartButton()
         {
             SceneManager.LoadScene("MainGame");
+            audioManager.PlaySFX(SFXType.OnButtonClick);
         }
 
         private void OnSettingsButton()
         {   
             settingsPanel.SetActive(true);
+            audioManager.PlaySFX(SFXType.OnButtonClick);
         }
 
         private void OnQuitButton()
         {
             Application.Quit();
+            audioManager.PlaySFX(SFXType.OnButtonClick);
         }
 
         private void OnSettingsCloseButton()
         {
             settingsPanel.SetActive(false);
+            audioManager.PlaySFX(SFXType.OnButtonClick);
         }
-
     }
 }
